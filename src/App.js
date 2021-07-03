@@ -1,5 +1,7 @@
 import React from "react";
 import styled from "styled-components";
+import menu from "./menu";
+import ListItem from "./components/ListItem";
 import FilterSelection from "./components/FilterSelection";
 
 const Container = styled.div`
@@ -19,12 +21,12 @@ const Container = styled.div`
 `;
 
 const Title = styled.h1`
-  margin-bottom: 64px;
+  margin-bottom: 40px;
   font-size: 40px;
   line-height: 48px;
   font-family: "Great Vibes", cursive;
   text-align: center;
-  color: #c59d5f;
+  color: #414141;
   /* border: 1px dashed green; */
 `;
 
@@ -34,6 +36,7 @@ export default function App() {
       <Container>
         <Title>{"Our Menu"}</Title>
         <FilterSelection />
+        <ListItem />
       </Container>
     </div>
   );
