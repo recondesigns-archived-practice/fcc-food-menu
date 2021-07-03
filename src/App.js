@@ -1,8 +1,9 @@
-import React from "react";
+import React, { useContext } from "react";
 import styled from "styled-components";
-import menu from "./menu";
+import { AppContext } from "./contexts/AppProvider";
 import ListItem from "./components/ListItem";
 import FilterSelection from "./components/FilterSelection";
+import { menu } from "./menu";
 
 const Container = styled.div`
   padding: 40px 16px 0px 16px;
@@ -31,6 +32,20 @@ const Title = styled.h1`
 `;
 
 export default function App() {
+  const [menuItems] = useContext(AppContext);
+
+  const findCategory = (item) => {
+    const { category } = item;
+    if (category === "lunch") {
+      return item;
+    }
+  };
+
+  if (menuItems) {
+    let filteredList = menuItems.filter(findCategory);
+    console.log(filteredList);
+  }
+
   return (
     <div className="App">
       <Container>
