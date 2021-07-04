@@ -1,19 +1,12 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { menu } from "../menu";
 
 export const AppContext = React.createContext();
 
 export function AppProvider({ children }) {
-  const [menuItems, setMenuItems] = useState(null);
-
-  useEffect(() => {
-    if (menu) {
-      setMenuItems(() => [...menu]);
-    }
-  }, []);
-
+  const [selectedCategory, setSelectedCategory] = useState("all");
   return (
-    <AppContext.Provider value={[menuItems, setMenuItems]}>
+    <AppContext.Provider value={[selectedCategory, setSelectedCategory]}>
       {children}
     </AppContext.Provider>
   );

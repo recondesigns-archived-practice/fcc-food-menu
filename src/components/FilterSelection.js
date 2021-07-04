@@ -1,5 +1,6 @@
-import React from "react";
+import React, { useContext } from "react";
 import styled from "styled-components";
+import { AppContext } from "../contexts/AppProvider";
 
 const Container = styled.div`
   box-sizing: border-box;
@@ -39,14 +40,40 @@ const FilterButton = styled.button`
   }
 `;
 
+const links = ["All", "Breakfast", "Lunch", "Dinner", "Shakes"];
+
 export default function FilterSelection() {
+  const [selectedCategory, setSelectedCategory] = useContext(AppContext);
+
+  function handleClick(e, state, setter) {
+    const { name } = e.target;
+    if (state === name) {
+      // console.log("Already matches");
+    } else {
+      setter(() => name);
+    }
+  }
+
   return (
     <Container>
-      <FilterButton>{"All"}</FilterButton>
+      {links.map((link, idx) => {
+        return (
+          <FilterButton
+            key={idx}
+            name={link.toLowerCase()}
+            onClick={(e) =>
+              handleClick(e, selectedCategory, setSelectedCategory)
+            }
+          >
+            {link}
+          </FilterButton>
+        );
+      })}
+      {/* <FilterButton>{"All"}</FilterButton>
       <FilterButton>{"Breakfast"}</FilterButton>
       <FilterButton>{"Lunch"}</FilterButton>
       <FilterButton>{"Shakes"}</FilterButton>
-      <FilterButton>{"Dinner"}</FilterButton>
+      <FilterButton>{"Dinner"}</FilterButton> */}
     </Container>
   );
 }

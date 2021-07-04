@@ -5,9 +5,10 @@ const Container = styled.div`
   border: 1px dashed black;
 `;
 
-export default function ListItem() {
+export default function ListItem(props) {
+  const { name } = props;
   return (
-    <Container>
+    <Container name={name}>
       <p>List item</p>
     </Container>
   );
