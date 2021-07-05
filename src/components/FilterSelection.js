@@ -13,7 +13,6 @@ const Container = styled.div`
   @media (min-width: 720px) {
     flex-direction: row;
     justify-content: space-between;
-    /* gap: 12px; */
   }
 `;
 
@@ -40,13 +39,10 @@ const FilterButton = styled.button`
   }
 `;
 
-const links = ["All", "Breakfast", "Lunch", "Dinner", "Shakes"];
-
 export default function FilterSelection() {
+  const links = ["All", "Breakfast", "Lunch", "Dinner", "Shakes"];
   const { category } = useContext(AppContext);
   const { selectedCategory, setSelectedCategory } = category;
-  // const { menuList } = menu;
-  // console.log(menuList);
 
   function handleClick(e, state, setter) {
     const { name } = e.target;
@@ -72,11 +68,6 @@ export default function FilterSelection() {
           </FilterButton>
         );
       })}
-      {/* <FilterButton>{"All"}</FilterButton>
-      <FilterButton>{"Breakfast"}</FilterButton>
-      <FilterButton>{"Lunch"}</FilterButton>
-      <FilterButton>{"Shakes"}</FilterButton>
-      <FilterButton>{"Dinner"}</FilterButton> */}
     </Container>
   );
 }
