@@ -7,7 +7,7 @@ import FilterSelection from "./components/FilterSelection";
 const Container = styled.div`
   padding: 40px 16px 0px 16px;
   position: relative;
-  height: 100vh;
+  /* height: 100vh; */
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -31,6 +31,7 @@ const Title = styled.h1`
 `;
 
 const ListWrapper = styled.div`
+  margin-top: 40px;
   width: 100%;
   /* border: 1px solid lightcoral; */
 `;
@@ -49,13 +50,14 @@ export default function App() {
   });
 
   let itemsList = filteredList.map((item, idx) => {
-    const { title, price, description } = item;
+    const { title, price, description, image } = item;
     return (
       <ListItem
         key={idx}
         name={title}
         price={price}
         description={description}
+        image={image}
       />
     );
   });
