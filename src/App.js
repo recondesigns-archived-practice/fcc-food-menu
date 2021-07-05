@@ -48,8 +48,6 @@ export default function App() {
     return <ListItem key={idx} name={title} />;
   });
 
-  console.log(itemsList);
-
   return (
     <div className="App">
       <Container>
