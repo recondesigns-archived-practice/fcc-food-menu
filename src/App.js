@@ -31,14 +31,31 @@ const Title = styled.h1`
 `;
 
 export default function App() {
-  const [selectedCategory] = useContext(AppContext);
-  console.log(555, selectedCategory);
+  const { menu, category } = useContext(AppContext);
+  const { menuList } = menu;
+  const { selectedCategory } = category;
+
+  let filteredList = menuList.filter(function (item) {
+    if (selectedCategory === "all") {
+      return menuList;
+    } else if (item.category === selectedCategory) {
+      return item;
+    }
+  });
+
+  let itemsList = filteredList.map((item, idx) => {
+    const { title } = item;
+    return <ListItem key={idx} name={title} />;
+  });
+
+  console.log(itemsList);
+
   return (
     <div className="App">
       <Container>
         <Title>{"Our Menu"}</Title>
         <FilterSelection />
-        <ListItem name={"all"} />
+        {itemsList}
       </Container>
     </div>
   );

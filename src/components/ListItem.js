@@ -9,7 +9,7 @@ export default function ListItem(props) {
   const { name } = props;
   return (
     <Container name={name}>
-      <p>List item</p>
+      <p>{name}</p>
     </Container>
   );
 }

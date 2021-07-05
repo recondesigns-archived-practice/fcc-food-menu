@@ -43,7 +43,10 @@ const FilterButton = styled.button`
 const links = ["All", "Breakfast", "Lunch", "Dinner", "Shakes"];
 
 export default function FilterSelection() {
-  const [selectedCategory, setSelectedCategory] = useContext(AppContext);
+  const { category } = useContext(AppContext);
+  const { selectedCategory, setSelectedCategory } = category;
+  // const { menuList } = menu;
+  // console.log(menuList);
 
   function handleClick(e, state, setter) {
     const { name } = e.target;
