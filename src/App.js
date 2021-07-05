@@ -30,6 +30,11 @@ const Title = styled.h1`
   /* border: 1px dashed green; */
 `;
 
+const ListWrapper = styled.div`
+  width: 100%;
+  /* border: 1px solid lightcoral; */
+`;
+
 export default function App() {
   const { menu, category } = useContext(AppContext);
   const { menuList } = menu;
@@ -44,8 +49,15 @@ export default function App() {
   });
 
   let itemsList = filteredList.map((item, idx) => {
-    const { title } = item;
-    return <ListItem key={idx} name={title} />;
+    const { title, price, description } = item;
+    return (
+      <ListItem
+        key={idx}
+        name={title}
+        price={price}
+        description={description}
+      />
+    );
   });
 
   return (
@@ -53,7 +65,7 @@ export default function App() {
       <Container>
         <Title>{"Our Menu"}</Title>
         <FilterSelection />
-        {itemsList}
+        <ListWrapper>{itemsList}</ListWrapper>
       </Container>
     </div>
   );

@@ -16,7 +16,7 @@ export const menu = [
     image: "none-such-image"
   },
   {
-    title: "Breakfast Item 1",
+    title: "Buttermilke Pancakes",
     description:
       "vaporware iPhone mumblecore selvage raw denim slow-carb leggings gochujang helvetica man braid jianbing. Marfa thundercats",
     category: "breakfast",
